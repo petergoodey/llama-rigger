@@ -34,7 +34,7 @@ models you keep. Nothing is downloaded, deleted or edited without your yes.
 
 ## What's in the repo
 
-- `start-llama-ini.cmd` / `start-llama-ini.sh`: the launcher. It starts one
+- `start-llama.cmd` / `start-llama.sh`: the launcher. It starts one
   router on `127.0.0.1:9931` that loads whichever model a client asks for and
   evicts others to stay within your memory budget.
 - `models.example.ini`: a sample preset file to start from.

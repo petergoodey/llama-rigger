@@ -21,7 +21,7 @@ there). `bench.py --base-url` points at another router, e.g. a `tryout-model` tr
 
 ## Prerequisites
 
-1. **A router serving the models:** `start-llama-ini` / `./start-llama-ini.sh`
+1. **A router serving the models:** `start-llama` / `./start-llama.sh`
    (127.0.0.1:9931). It swaps models by memory, so a full run needs no help;
    models not on disk are skipped.
 2. **A C/C++ compiler with AddressSanitizer:** MSVC on Windows

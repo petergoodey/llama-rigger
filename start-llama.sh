@@ -1,15 +1,15 @@
 #!/usr/bin/env bash
 # ===========================================================================
-#  start-llama-ini.sh - start llama-server (router mode) from a preset .ini
-#  Linux / macOS twin of start-llama-ini.cmd; same lookup, same env vars.
+#  start-llama.sh - start llama-server (router mode) from a preset .ini
+#  Linux / macOS twin of start-llama.cmd; same lookup, same env vars.
 #
-#  Usage:  ./start-llama-ini.sh [preset.ini] [--dry-run] [extra args...]
+#  Usage:  ./start-llama.sh [preset.ini] [--dry-run] [extra args...]
 #
 #    <preset.ini>  OPTIONAL. Defaults to $LLAMA_PRESET, else local/models.ini,
 #                  else models.example.ini; used when it is omitted or the first
 #                  argument starts with "-". A bare name is also looked up in
 #                  local/ and next to this script, ".ini" optional:
-#                    ./start-llama-ini.sh models
+#                    ./start-llama.sh models
 #    --here        accepted for compatibility with the .cmd (always runs here)
 #    --dry-run     print the command line and exit
 #    extra args    passed to llama-server AFTER the defaults, so they win.
@@ -20,12 +20,12 @@
 #  at a time; requesting another swaps it in).
 #  Override with env vars LLAMA_HOST / LLAMA_PORT / LLAMA_MODELS_MAX /
 #  LLAMA_MODELS_MEMORY_MARGIN, per session or in local/env.sh (sourced if present).
-#  Run it in the background with:  nohup ./start-llama-ini.sh > router.log 2>&1 &
+#  Run it in the background with:  nohup ./start-llama.sh > router.log 2>&1 &
 # ===========================================================================
 set -euo pipefail
 
 DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-say() { echo "[start-llama-ini] $*" >&2; }
+say() { echo "[start-llama] $*" >&2; }
 
 usage() {
     sed -n '3,21p' "${BASH_SOURCE[0]}" | sed 's/^# \{0,1\}//'

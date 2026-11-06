@@ -14,7 +14,7 @@ this machine (measurements, model inventory, the real preset file) under
 @local/AGENTS.md
 
 Layout:
-- Launcher: `start-llama-ini.cmd` (Windows) / `start-llama-ini.sh` (Linux,
+- Launcher: `start-llama.cmd` (Windows) / `start-llama.sh` (Linux,
   macOS). `--help` has the preset lookup, defaults and env vars.
 - Presets: `local/models.ini` (the real one), else `models.example.ini`;
   `LLAMA_PRESET` overrides. The launcher and every skill use the same lookup.

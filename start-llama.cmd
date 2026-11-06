@@ -1,20 +1,20 @@
 @echo off
 rem ===========================================================================
-rem  start-llama-ini.cmd - start llama-server (router mode) from a preset .ini
+rem  start-llama.cmd - start llama-server (router mode) from a preset .ini
 rem
-rem  Usage:  start-llama-ini.cmd [preset.ini] [--here] [--dry-run] [extra args...]
+rem  Usage:  start-llama.cmd [preset.ini] [--here] [--dry-run] [extra args...]
 rem
 rem    <preset.ini>  OPTIONAL. Defaults to %LLAMA_PRESET%, else local\models.ini,
 rem                  else models.example.ini; used when it is omitted or the first
 rem                  argument starts with "-":
-rem                    start-llama-ini            start-llama-ini --here
+rem                    start-llama            start-llama --here
 rem                  Otherwise an ini in llama-server --models-preset format. A
 rem                  bare name is also looked up in local\ and next to this script,
-rem                  and the ".ini" can be left off:  start-llama-ini other-preset
+rem                  and the ".ini" can be left off:  start-llama other-preset
 rem    --here        run in this window instead of opening a new one
 rem    --dry-run     print the command line and exit
 rem    extra args    passed to llama-server AFTER the defaults, so they win:
-rem                  start-llama-ini models.ini --models-max 2 --port 8080
+rem                  start-llama models.ini --models-max 2 --port 8080
 rem
 rem  Defaults: --host 127.0.0.1 --port 9931. Models auto-unload: with
 rem  LLAMA_MODELS_MEMORY_MARGIN set, --models-memory-margin N --models-max 0 (evict
@@ -36,7 +36,7 @@ if "%~1"=="/?"     goto :usage
 rem ---- machine defaults -----------------------------------------------------
 rem local\env.cmd (optional) runs first, so it can set any LLAMA_* variable,
 rem LLAMA_PRESET included; session env vars win when it only sets variables that
-rem are "not defined". start-llama-ini.sh sources local/env.sh at the same point.
+rem are "not defined". start-llama.sh sources local/env.sh at the same point.
 if exist "%~dp0local\env.cmd" call "%~dp0local\env.cmd"
 
 rem ---- resolve the ini ------------------------------------------------------
@@ -70,11 +70,11 @@ if "%FIRST%"=="" (
 if not defined INI set "INI=%FIRST%"
 rem a folder is never a preset (exist "x\*" is true only for folders)
 if exist "%INI%\*" (
-    echo [start-llama-ini] ERROR: %INI% is a folder, not a preset .ini
+    echo [start-llama] ERROR: %INI% is a folder, not a preset .ini
     exit /b 1
 )
 if not exist "%INI%" (
-    echo [start-llama-ini] ERROR: preset not found: %INI%
+    echo [start-llama] ERROR: preset not found: %INI%
     echo                   Copy models.example.ini to local\models.ini and edit it,
     echo                   or pass a preset path / set LLAMA_PRESET.
     exit /b 1
@@ -124,16 +124,16 @@ if defined DRY (
 
 rem ---- sanity checks --------------------------------------------------------
 where llama-server >nul 2>&1 || (
-    echo [start-llama-ini] ERROR: llama-server not on PATH. winget install ggml.llamacpp
+    echo [start-llama] ERROR: llama-server not on PATH. winget install ggml.llamacpp
     exit /b 1
 )
 netstat -ano -p TCP | findstr /r /c:":%LLAMA_PORT% .*LISTENING" >nul && (
-    echo [start-llama-ini] ERROR: port %LLAMA_PORT% is already in use - is a server already running?
+    echo [start-llama] ERROR: port %LLAMA_PORT% is already in use - is a server already running?
     echo                   Stop it, or pass --port N / set LLAMA_PORT=N.
     exit /b 1
 )
 
-echo [start-llama-ini] %CMDLINE%
+echo [start-llama] %CMDLINE%
 if defined HERE (
     %CMDLINE%
     exit /b %errorlevel%

@@ -33,8 +33,8 @@ Install the prerequisites first: [install.md](install.md).
 ## Running the router
 
 ```
-start-llama-ini            # Windows
-./start-llama-ini.sh       # Linux, macOS
+start-llama            # Windows
+./start-llama.sh       # Linux, macOS
 ```
 
 This uses `$LLAMA_PRESET`, else `local/models.ini`, else `models.example.ini`,
@@ -47,7 +47,7 @@ llama-server --models-preset local/models.ini --host 127.0.0.1 --port 9931 --mod
 
 `--help` lists every option. On Windows it opens a new console window (`--here`
 runs it in the current one); on Linux/macOS it runs in the foreground
-(`nohup ./start-llama-ini.sh > router.log 2>&1 &` to background it).
+(`nohup ./start-llama.sh > router.log 2>&1 &` to background it).
 
 The router swaps models itself: a request for a preset that isn't loaded loads
 it, and it unloads others automatically in one of two ways.

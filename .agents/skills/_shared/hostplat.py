@@ -99,13 +99,13 @@ def restart_router(repo_dir, ini, log_path):
     """Start the router again with the repo's launcher, detached from this process."""
     repo_dir = Path(repo_dir)
     if IS_WIN:
-        subprocess.Popen(["cmd", "/c", str(repo_dir / "start-llama-ini.cmd"), str(ini)],
+        subprocess.Popen(["cmd", "/c", str(repo_dir / "start-llama.cmd"), str(ini)],
                          cwd=str(repo_dir), creationflags=subprocess.CREATE_NEW_CONSOLE)
-        return f"new console window ({repo_dir / 'start-llama-ini.cmd'})"
+        return f"new console window ({repo_dir / 'start-llama.cmd'})"
     log_path = Path(log_path)
     log_path.parent.mkdir(parents=True, exist_ok=True)
     with open(log_path, "ab") as f:
-        subprocess.Popen(["bash", str(repo_dir / "start-llama-ini.sh"), str(ini)],
+        subprocess.Popen(["bash", str(repo_dir / "start-llama.sh"), str(ini)],
                          cwd=str(repo_dir), stdout=f, stderr=subprocess.STDOUT,
                          stdin=subprocess.DEVNULL, start_new_session=True)
     return f"background, log: {log_path}"
