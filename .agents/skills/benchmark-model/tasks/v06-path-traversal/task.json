@@ -1,0 +1,11 @@
+{
+  "id": "v06",
+  "kind": "vuln",
+  "lang": "csharp",
+  "trap": false,
+  "title": "Path traversal in file resolver",
+  "prompt_file": "prompt.md",
+  "files": ["vuln.cs"],
+  "answer_key": "answer.md",
+  "grading": { "driver": "Program.cs" }
+}

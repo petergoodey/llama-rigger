@@ -1,0 +1,11 @@
+{
+  "id": "c08",
+  "kind": "coding",
+  "lang": "csharp",
+  "trap": false,
+  "title": "Balanced bracket check",
+  "prompt_file": "prompt.md",
+  "files": [],
+  "answer_key": "answer.md",
+  "grading": { "driver": "Program.cs" }
+}

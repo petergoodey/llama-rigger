@@ -1,0 +1,11 @@
+{
+  "id": "c05",
+  "kind": "coding",
+  "lang": "cpp",
+  "trap": false,
+  "title": "Merge overlapping intervals",
+  "prompt_file": "prompt.md",
+  "files": [],
+  "answer_key": "answer.md",
+  "grading": { "driver": "driver.cpp", "run_modes": ["test"] }
+}

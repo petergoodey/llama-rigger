@@ -1,0 +1,11 @@
+{
+  "id": "c07",
+  "kind": "coding",
+  "lang": "csharp",
+  "trap": false,
+  "title": "Compare dotted version strings",
+  "prompt_file": "prompt.md",
+  "files": [],
+  "answer_key": "answer.md",
+  "grading": { "driver": "Program.cs" }
+}

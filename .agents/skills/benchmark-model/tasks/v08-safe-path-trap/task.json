@@ -1,0 +1,11 @@
+{
+  "id": "v08",
+  "kind": "vuln",
+  "lang": "csharp",
+  "trap": true,
+  "title": "File resolver with containment check (actually safe)",
+  "prompt_file": "prompt.md",
+  "files": ["vuln.cs"],
+  "answer_key": "answer.md",
+  "grading": { "driver": "Program.cs" }
+}

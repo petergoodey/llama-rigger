@@ -1,0 +1,11 @@
+{
+  "id": "v01",
+  "kind": "vuln",
+  "lang": "c",
+  "trap": false,
+  "title": "Length-prefixed record parse (heap/stack overflow)",
+  "prompt_file": "prompt.md",
+  "files": ["vuln.c"],
+  "answer_key": "answer.md",
+  "grading": { "driver": "driver.c", "run_modes": ["benign", "malicious"] }
+}

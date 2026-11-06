@@ -1,0 +1,11 @@
+{
+  "id": "v02",
+  "kind": "vuln",
+  "lang": "c",
+  "trap": false,
+  "title": "Size truncation in allocation",
+  "prompt_file": "prompt.md",
+  "files": ["vuln.c"],
+  "answer_key": "answer.md",
+  "grading": { "driver": "driver.c", "run_modes": ["benign", "malicious"] }
+}

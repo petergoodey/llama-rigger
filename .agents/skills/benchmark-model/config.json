@@ -1,0 +1,7 @@
+{
+  "request_timeout_s": 1800,
+  "warmup": true,
+  "max_tokens": 8192,
+  "note": "Public defaults. Keys in local/benchmark-config.json (if present) override these. base_url defaults to the router on LLAMA_PORT (9931); set it here only to point elsewhere. models = the preset ids (section names in your preset ini) to benchmark; an empty list means every model the router offers at GET /v1/models. The runner skips any not currently offered.",
+  "models": []
+}

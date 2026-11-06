@@ -1,0 +1,8 @@
+# Keep line endings right on every OS regardless of core.autocrlf:
+# shell scripts must be LF (bash fails on CRLF), cmd scripts CRLF.
+* text=auto
+*.sh  text eol=lf
+*.py  text eol=lf
+*.cmd text eol=crlf
+*.bat text eol=crlf
+*.ps1 text eol=crlf

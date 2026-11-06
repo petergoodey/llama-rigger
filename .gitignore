@@ -1,0 +1,29 @@
+# Model weights and partial downloads
+*.gguf
+*.incomplete
+
+# Hugging Face download cache (each folder also ignores itself)
+.cache/
+
+# Python
+__pycache__/
+*.pyc
+
+# Generated benchmark / tuning output (raw answers, per-model JSON, logs, reports)
+**/results/
+
+# Backups written by tune-model's apply_ini.py
+*.bak-*
+
+# .claude/skills is a junction to .agents/skills. Git follows it and would commit
+# every skill twice, so only .agents/skills is tracked. Recreate it after a clone:
+#   New-Item -ItemType Junction -Path .claude\skills -Target .agents\skills
+/.claude/skills/
+/.claude/settings.local.json
+
+# Private, machine-specific config and data: a separate private git repo
+# (models.ini, TUNING_STATUS.md, SYSTEM_INFO.md, MODELS.md, ...)
+/local/
+
+# Model weights folder
+/models/
